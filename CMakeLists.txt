@@ -3,6 +3,8 @@ project(SoftwareRenderer)
 
 set(CMAKE_CXX_STANDARD 17)
 
+set(SDL2_DIR "${CMAKE_SOURCE_DIR}/SDL2/cmake")
+
 # looking for SDL2 in system
 find_package(SDL2 REQUIRED)
 
@@ -10,4 +12,4 @@ add_executable(SoftwareRenderer
     src/main.cpp
 )
 
-target_link_libraries(SoftwareRenderer PRIVATE SDL2::SDL2)
+target_link_libraries(SoftwareRenderer PRIVATE SDL2::SDL2main SDL2::SDL2)
