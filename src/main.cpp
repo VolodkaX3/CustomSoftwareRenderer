@@ -10,6 +10,23 @@ inline Uint32 RGB(Uint8 r, Uint8 g, Uint8 b, Uint8 a = 255){
     return ((Uint32)a << 24) | ((Uint32)b << 16) | ((Uint32)g << 8) | (Uint32)r;
 }
 
+void Draw_vertical_line(std::vector<Uint32> & framebuffer, int x, int y0, int y1, Uint32 color){
+    //antifooldefence
+    if (y0 > y1){
+        std::swap(y0, y1);
+    }
+
+    if (x < 0 || x >= WIDTH) {
+        return;
+    }
+
+    for (int y = y0; y <= y1; y++) {
+        if (y >= 0 && y < HEIGHT) {
+            framebuffer[y * WIDTH + x] = color;
+        }
+    }
+}
+
 //Delete func
 void ClearScreen(std::vector<Uint32>& framebuffer, Uint32 color) {
     std::fill(framebuffer.begin(), framebuffer.end(), color);
@@ -105,6 +122,9 @@ int main(int argc, char* argv[]) {
         DrawLine(framebuffer, 100, 100, 700, 500, RGB(255, 85, 85));
 
         DrawLine(framebuffer, 0, 300, 800, 300, RGB(0, 204, 255)); //rgb(0, 204, 255);
+
+        // line from a specific function
+        Draw_vertical_line(framebuffer, 200, 50, 450, RGB(0, 255, 0));
 
         // render buffer to window
         SDL_UpdateTexture(texture, nullptr, framebuffer.data(), WIDTH * sizeof(Uint32));
