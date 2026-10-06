@@ -121,7 +121,7 @@ int main(int argc, char* argv[]) {
         // draw line across screen
         DrawLine(framebuffer, 100, 100, 700, 500, RGB(255, 85, 85));
 
-        DrawLine(framebuffer, 0, 300, 800, 300, RGB(0, 204, 255)); //rgb(0, 204, 255);
+        DrawLine(framebuffer, 0, 300, 800, 300, RGB(0, 115, 255)); //rgb(0, 115, 255);
 
         // line from a specific function
         Draw_vertical_line(framebuffer, 200, 50, 450, RGB(0, 255, 0));
