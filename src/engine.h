@@ -24,7 +24,7 @@ struct LineData{
 };
 
 /*
-inline void Drawverticalline(std::vector<Uint32> & framebuffer, int x, int y0, int y1, Uint32 color){
+inline void Drawverticalline(vector<Uint32> & framebuffer, int x, int y0, int y1, Uint32 color){
     if (y0 > y1){
         swap(y0, y1);
     }
@@ -40,15 +40,15 @@ inline void Drawverticalline(std::vector<Uint32> & framebuffer, int x, int y0, i
 */
 
 //make it all black ("clean")
-inline void clean(std::vector<Uint32>& framebuffer, Uint32 color){
+inline void clean(vector<Uint32>& framebuffer, Uint32 color){
     fill(framebuffer.begin(), framebuffer.end(), color);
 }
-inline void Drawpixel(std::vector<Uint32>& framebuffer, int x, int y, Uint32 color){
+inline void Drawpixel(vector<Uint32>& framebuffer, int x, int y, Uint32 color){
     if (x >= 0 && x < width && y >= 0 && y < height){
         framebuffer[y * width + x] = color;
     }
 }
-inline void Drawline(std::vector<Uint32>& framebuffer, int x0, int y0, int x1, int y1, Uint32 color){
+inline void Drawline(vector<Uint32>& framebuffer, int x0, int y0, int x1, int y1, Uint32 color){
     int dx = x1 - x0;
     int dy = y1 - y0;
     
